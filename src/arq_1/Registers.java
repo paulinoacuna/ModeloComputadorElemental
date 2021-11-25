@@ -1,3 +1,5 @@
+package arq_1;
+
 public class Registers {
 
     /*
