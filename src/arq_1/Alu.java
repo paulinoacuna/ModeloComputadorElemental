@@ -42,6 +42,11 @@ public class Alu {
         flagsProcessor(result);
 
         Registers.registersArray[registerArrayIndexX] = result;
+
+        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_1:" + "\u001B[0m" +
+                " \u001B[36m" + "suma()" +  "\u001B[0m " + "\u001B[33m" + "-->" + "\u001B[0m" +
+                " Suma de valores en los registros " + x + " y " + y +
+                ". Resultado almacenado en el registro " + x + ".");
     }
 
     //suma el registro x con el valor a, el resultado lo guarda en x
@@ -53,6 +58,11 @@ public class Alu {
         flagsProcessor(result);
 
         Registers.registersArray[registerArrayIndexX] = result;
+
+        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_1:" + "\u001B[0m" +
+                " \u001B[36m" + "suma()" +  "\u001B[0m " + "\u001B[33m" + "-->" + "\u001B[0m" +
+                " Suma el valor del registro " + x + " más la constante " + a +
+                ". Resultado almacenado en el registro " + x + ".");
     }
 
 
@@ -66,6 +76,11 @@ public class Alu {
         flagsProcessor(result);
 
         Registers.registersArray[registerArrayIndexX] = result;
+
+        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_1:" + "\u001B[0m" +
+                " \u001B[36m" + "resta()" +  "\u001B[0m " + "\u001B[33m" + "-->" + "\u001B[0m" +
+                " Resta de valores en los registros " + x + " y " + y +
+                ". Resultado almacenado en el registro " + x + ".");
     }
 
     //resta el registro x con el valor a, el resultado lo guarda en x
@@ -77,6 +92,11 @@ public class Alu {
         flagsProcessor(result);
 
         Registers.registersArray[registerArrayIndexX] = result;
+
+        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_1:" + "\u001B[0m" +
+                " \u001B[36m" + "resta()" +  "\u001B[0m " + "\u001B[33m" + "-->" + "\u001B[0m" +
+                " Resta el valor del registro " + x + " menos la constante " + a +
+                ". Resultado almacenado en el registro " + x + ".");
     }
 
     public static void modulo(String x,String y){
@@ -90,6 +110,11 @@ public class Alu {
         flagsProcessor(result);
 
         Registers.registersArray[registerArrayIndexX] = result;
+
+        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_1:" + "\u001B[0m" +
+                " \u001B[36m" + "modulo()" +  "\u001B[0m " + "\u001B[33m" + "-->" + "\u001B[0m" +
+                " Residuo de la división entre los valores de los registros " + x + " y " + y +
+                ". Resultado almacenado en el registro " + x + ".");
     }
 
     //saltos
@@ -107,12 +132,14 @@ public class Alu {
         }
         return false;
     }
+
     public static boolean saltarSiNeg(){
         if (flagsArray[2] == 1) {
             return true;
         }
         return false;
     }
+
     public static boolean saltarSiDes(){
         if (flagsArray[3] == 1) {
             return true;
