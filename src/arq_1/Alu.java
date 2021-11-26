@@ -15,7 +15,7 @@ public class Alu {
     public static int[] flagsArray = {0,0,0,0};
 
 
-    private static void flagsProcessor(int result) {
+    public static void flagsProcessor(int result) {
         if(result == 0){
             flagsArray[0] = 1;
         }else if(result > 0){

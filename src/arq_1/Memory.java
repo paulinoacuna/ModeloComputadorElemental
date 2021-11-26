@@ -63,6 +63,17 @@ public class Memory {
                 " Almacena los datos del registro " + x + " en memoria.");
     }
 
+    //almacena un dato a en la posicion de memoria definida
+    public static void almacenarDato(int a, int dataArrayIndex) {
+
+        if(dataArrayIndex >= top || dataArrayIndex < 0){
+            System.err.println("Error 003: La posicion de memoria [" + dataArrayIndex +"] no ha sido definida.");
+            System.exit(-1);
+        }else{
+            dataArray[dataArrayIndex] = a;
+        }
+    }
+
 
     //copia los datos del registro x en el registro y
     public static void copiar(String x,String y){
