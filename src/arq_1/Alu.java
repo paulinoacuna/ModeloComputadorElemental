@@ -16,6 +16,12 @@ public class Alu {
 
 
     public static void flagsProcessor(int result) {
+
+        flagsArray[0] = 0;
+        flagsArray[1] = 0;
+        flagsArray[2] = 0;
+        flagsArray[3] = 0;
+
         if(result == 0){
             flagsArray[0] = 1;
         }else if(result > 0){

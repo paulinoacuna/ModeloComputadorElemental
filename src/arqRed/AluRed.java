@@ -4,15 +4,17 @@ import arq_1.Registers;
 import com_1.AluCom_1;
 import com_1.MemoryCom_1;
 import com_2.AluCom_2;
+import com_2.MemoryCom_2;
 import com_3.AluCom_3;
+import com_3.MemoryCom_3;
 import com_4.AluCom_4;
+import com_4.MemoryCom_4;
 import com_5.AluCom_5;
+import com_5.MemoryCom_5;
 
 import static arq_1.Alu.flagsProcessor;
 
 public class AluRed {
-
-
 
     //operaciones matematicas (6)
 
@@ -88,9 +90,20 @@ public class AluRed {
 
     }
 
-    //fabor completar hasta 6 operaciones siguiendo la misma logica anterior ej(resta,multip,modulo)
+    //...fabor completar hasta 6 operaciones siguiendo la misma logica anterior ej: (resta,multip,modulo)
+
+
+
+
+
+
+
 
     //....code here
+
+
+
+
 
 
     //saltos
@@ -121,21 +134,82 @@ public class AluRed {
         }
     }
 
-    //fabor completar siguiendo la misma logica anterior
-
     public static boolean saltarSiPos(){
-      //code here
-        return false;
+
+
+        switch (MemoryRed.aluSelectedCom) {
+            case 1:
+                return AluCom_1.saltarSiPos();
+
+            case 2:
+                return AluCom_2.saltarSiPos();
+
+            case 3:
+                return AluCom_3.saltarSiPos();
+
+            case 4:
+                return AluCom_4.saltarSiPos();
+
+            case 5:
+                return AluCom_5.saltarSiPos();
+
+            default:
+                System.err.println("Error en la selección del Computador");
+                System.exit(-1);
+                return false;
+
+        }
     }
 
     public static boolean saltarSiNeg(){
-        //code here
-        return false;
+
+        switch (MemoryRed.aluSelectedCom) {
+            case 1:
+                return AluCom_1.saltarSiNeg();
+
+            case 2:
+                return AluCom_2.saltarSiNeg();
+
+            case 3:
+                return AluCom_3.saltarSiNeg();
+
+            case 4:
+                return AluCom_4.saltarSiNeg();
+
+            case 5:
+                return AluCom_5.saltarSiNeg();
+
+            default:
+                System.err.println("Error en la selección del Computador");
+                System.exit(-1);
+                return false;
+
+        }
     }
 
     public static boolean saltarSiDes(){
-        //code here
-        return false;
+
+        switch (MemoryRed.aluSelectedCom) {
+            case 1:
+                return AluCom_1.saltarSiDes();
+
+            case 2:
+                return AluCom_2.saltarSiDes();
+
+            case 3:
+                return AluCom_3.saltarSiDes();
+
+            case 4:
+                return AluCom_4.saltarSiDes();
+
+            case 5:
+                return AluCom_5.saltarSiDes();
+
+            default:
+                System.err.println("Error en la selección del Computador");
+                System.exit(-1);
+                return false;
+        }
     }
 
 }

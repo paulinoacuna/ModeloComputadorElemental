@@ -3,6 +3,10 @@ package arqRed;
 import arq_1.Registers;
 import com_1.AluCom_1;
 import com_1.MemoryCom_1;
+import com_2.MemoryCom_2;
+import com_3.MemoryCom_3;
+import com_4.MemoryCom_4;
+import com_5.MemoryCom_5;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,9 +28,9 @@ public class MemoryRed {
     * estableciendo prioridad de computo
     * */
 
-    static int aluSelectedCom;
-    static int memorySelectedCom;
-    static int registersSelectedCom;
+    public static int aluSelectedCom;
+    public static int memorySelectedCom;
+    public static int registersSelectedCom;
 
     static int priorityMatrixIndexCounter = 0;
 
@@ -86,8 +90,6 @@ public class MemoryRed {
         System.out.println("Registos del computador " + registersSelectedCom + " seleccionada.");
     }
 
-
-
     //microservicios (6.)
 
     //1. ingresa datos a la memoria, retorna la dirección de memoria donde quedó almacenado
@@ -120,80 +122,20 @@ public class MemoryRed {
     //2. carga datos de la memoria en los registros
     public static void cargar(String x,int dataArrayIndex){
 
-        switch (x) {
-            case "A":
-                MemoryCom_1.cargar(x,dataArrayIndex);
-                break;
-            case "B":
-                MemoryCom_1.cargar(x,dataArrayIndex);
-                break;
-            case "C":
-                MemoryCom_1.cargar(x,dataArrayIndex);
-                break;
-            case "D":
-                MemoryCom_1.cargar(x,dataArrayIndex);
-                break;
+        if (x.equals("A") || x.equals("B") || x.equals("C") || x.equals("D")) {
+            MemoryCom_1.cargar(x,dataArrayIndex);
+        } else if (x.equals("E") || x.equals("F") || x.equals("G") || x.equals("H")) {
+            MemoryCom_2.cargar(x,dataArrayIndex);
+        } else if (x.equals("I") || x.equals("J") || x.equals("K") || x.equals("L")) {
+            MemoryCom_3.cargar(x,dataArrayIndex);
+        } else if (x.equals("M") || x.equals("N") || x.equals("O") || x.equals("P")) {
+            MemoryCom_4.cargar(x,dataArrayIndex);
+        } else if (x.equals("Q") || x.equals("R") || x.equals("S") || x.equals("T")) {
+            MemoryCom_5.cargar(x,dataArrayIndex);
+        }else {
+            System.err.println("Error 001: El registro solicitado [" + x + "] no está definido, por favor revise los registros disponibles.");
+            System.exit(-1);
 
-
-            case "E":
-                MemoryCom_2.cargar(x,dataArrayIndex);
-                break;
-            case "F":
-                MemoryCom_2.cargar(x,dataArrayIndex);
-                break;
-            case "G":
-                MemoryCom_2.cargar(x,dataArrayIndex);
-                break;
-            case "H":
-                MemoryCom_2.cargar(x,dataArrayIndex);
-                break;
-
-
-            case "I":
-                MemoryCom_3.cargar(x,dataArrayIndex);
-                break;
-            case "J":
-                MemoryCom_3.cargar(x,dataArrayIndex);
-                break;
-            case "K":
-                MemoryCom_3.cargar(x,dataArrayIndex);
-                break;
-            case "L":
-                MemoryCom_3.cargar(x,dataArrayIndex);
-                break;
-
-
-            case "M":
-                MemoryCom_4.cargar(x,dataArrayIndex);
-                break;
-            case "N":
-                MemoryCom_4.cargar(x,dataArrayIndex);
-                break;
-            case "O":
-                MemoryCom_4.cargar(x,dataArrayIndex);
-                break;
-            case "P":
-                MemoryCom_4.cargar(x,dataArrayIndex);
-                break;
-
-
-            case "Q":
-                MemoryCom_5.cargar(x,dataArrayIndex);
-                break;
-            case "R":
-                MemoryCom_5.cargar(x,dataArrayIndex);
-                break;
-            case "S":
-                MemoryCom_5.cargar(x,dataArrayIndex);
-                break;
-            case "T":
-                MemoryCom_5.cargar(x,dataArrayIndex);
-                break;
-
-            default:
-                System.err.println("Error 001: El registro solicitado [" + x + "] no está definido, registros disponibles [A-T].");
-                System.exit(-1);
-                break;
         }
     }
 
@@ -229,19 +171,19 @@ public class MemoryRed {
 
         switch (memorySelectedCom) {
             case 1:
-                return MemoryCom_1.mostrar(dataArrayIndex);
+                MemoryCom_1.mostrar(dataArrayIndex);
             break;
             case 2:
-                return MemoryCom_2.mostrar(dataArrayIndex);
+                MemoryCom_2.mostrar(dataArrayIndex);
             break;
             case 3:
-                return MemoryCom_3.mostrar(dataArrayIndex);
+                MemoryCom_3.mostrar(dataArrayIndex);
             break;
             case 4:
-                return MemoryCom_4.mostrar(dataArrayIndex);
+                MemoryCom_4.mostrar(dataArrayIndex);
             break;
             case 5:
-                return MemoryCom_5.mostrar(dataArrayIndex);
+                MemoryCom_5.mostrar(dataArrayIndex);
             break;
             default:
                 System.err.println("Error en la selección del Computador");
@@ -286,18 +228,18 @@ public class MemoryRed {
         int temp = 0;
 
         if (x.equals("A") || x.equals("B") || x.equals("C") || x.equals("D")) {
-            int temp = MemoryCom_1.enviarValordeRegistro(x);
+            temp = MemoryCom_1.enviarValordeRegistro(x);
         } else if (x.equals("E") || x.equals("F") || x.equals("G") || x.equals("H")) {
-            int temp = MemoryCom_2.enviarValordeRegistro(x);
+            temp = MemoryCom_2.enviarValordeRegistro(x);
 
         } else if (x.equals("I") || x.equals("J") || x.equals("K") || x.equals("L")) {
-            int temp = MemoryCom_3.enviarValordeRegistro(x);
+            temp = MemoryCom_3.enviarValordeRegistro(x);
 
         } else if (x.equals("M") || x.equals("N") || x.equals("O") || x.equals("P")) {
-            int temp = MemoryCom_4.enviarValordeRegistro(x);
+            temp = MemoryCom_4.enviarValordeRegistro(x);
 
         } else if (x.equals("Q") || x.equals("R") || x.equals("S") || x.equals("T")) {
-            int temp = MemoryCom_5.enviarValordeRegistro(x);
+            temp = MemoryCom_5.enviarValordeRegistro(x);
 
         }else {
             System.err.println("Error 001: El registro solicitado [" + x + "] no está definido, por favor revise los registros disponibles.");

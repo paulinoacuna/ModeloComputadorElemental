@@ -37,22 +37,19 @@ public class RunRed {
             MemoryRed.cargar("A", a);
             MemoryRed.cargar("B", b);
             MemoryRed.copiar("B", "C");
-            AluRed.resta("C", 0);
+            //AluRed.resta("C", 0);
 
-            if (AluRed.saltarSiCero()) {
-                break;
-            }
-            if(AluRed.saltarSiNeg()){
-                break;
-            }
-            AluRed.modulo("A","B");
+
+            //AluRed.modulo("A","B");
             MemoryRed.almacenar("A",b);
             MemoryRed.almacenar("B",a);
+
+            mcd = false;
         }
         //Fin:
-        int m = Memory.almacenar("A");
+        int m = MemoryRed.almacenar("A");
         System.out.println("Máximo común divisor (mcd) calculado: ");
-        Memory.mostrar(m);
+        MemoryRed.mostrar(m);
 
 
 
