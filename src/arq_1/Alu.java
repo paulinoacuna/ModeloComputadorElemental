@@ -21,6 +21,7 @@ public class Alu {
         flagsArray[1] = 0;
         flagsArray[2] = 0;
         flagsArray[3] = 0;
+        System.out.println("test result" + result);
 
         if(result == 0){
             flagsArray[0] = 1;

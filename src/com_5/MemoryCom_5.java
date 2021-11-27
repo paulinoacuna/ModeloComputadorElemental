@@ -32,7 +32,7 @@ public class MemoryCom_5 extends arq_2.Memory2 {
 
 
     public static void cargar(String x,int dataArrayIndex){
-        int registerArrayIndex = RegistersCom_2.indexMapper(x);
+        int registerArrayIndex = RegistersCom_5.indexMapper(x);
         switch (MemoryRed.memorySelectedCom) {
             case 1:
                 RegistersCom_5.registersArray[registerArrayIndex] = com_1_dataArray[dataArrayIndex];
@@ -65,8 +65,31 @@ public class MemoryCom_5 extends arq_2.Memory2 {
 
 
 
+    //almacena un dato a en la posicion de memoria definida
+    public static void almacenarDato(int a, int dataArrayIndex) {
+
+        if(dataArrayIndex >= top || dataArrayIndex < 0){
+            System.err.println("Error 003: La posicion de memoria [" + dataArrayIndex +"] no ha sido definida.");
+            System.exit(-1);
+        }else{
+            com_5_dataArray[dataArrayIndex] = a;
+        }
+    }
 
 
+    public static void mostrar(int dataArrayIndex){
+
+        if(dataArrayIndex >= top || dataArrayIndex < 0){
+            System.err.println("Error 002: No hay datos almacenados en la posicion de memoria " + dataArrayIndex);
+            System.exit(-1);
+        }else{
+            System.out.println(com_5_dataArray[dataArrayIndex]);
+        }
+
+        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_1:" + "\u001B[0m" +
+                " \u001B[36m" + "mostrar()" +  "\u001B[0m " + "\u001B[33m" + "-->" + "\u001B[0m" +
+                " Imprime por pantalla virtual (consola) contenido de una posición de memoria específica.");
+    }
 
 
     //clase privada para funcionamiento,no borrar ni usar como instrucción en Run. por favor copiar esta clase en todos los com.

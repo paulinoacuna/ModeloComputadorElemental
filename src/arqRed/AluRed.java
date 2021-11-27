@@ -61,7 +61,7 @@ public class AluRed {
 
 
         //procesa las banderas
-        switch (MemoryRed.memorySelectedCom) {
+        switch (MemoryRed.aluSelectedCom) {
             case 1:
                  AluCom_1.flagsProcessor(result);
             break;
@@ -90,19 +90,62 @@ public class AluRed {
 
     }
 
-    //...fabor completar hasta 6 operaciones siguiendo la misma logica anterior ej: (resta,multip,modulo)
+    public static void resta(String x,int a) {
 
+        int temp1 = 0;
 
+        if (x.equals("A") || x.equals("B") || x.equals("C") || x.equals("D")) {
+            temp1 = MemoryCom_1.enviarValordeRegistro(x);
+        } else if (x.equals("E") || x.equals("F") || x.equals("G") || x.equals("H")) {
+            temp1 = MemoryCom_2.enviarValordeRegistro(x);
+        } else if (x.equals("I") || x.equals("J") || x.equals("K") || x.equals("L")) {
+            temp1 = MemoryCom_3.enviarValordeRegistro(x);
+        } else if (x.equals("M") || x.equals("N") || x.equals("O") || x.equals("P")) {
+            temp1 = MemoryCom_4.enviarValordeRegistro(x);
+        } else if (x.equals("Q") || x.equals("R") || x.equals("S") || x.equals("T")) {
+            temp1 = MemoryCom_5.enviarValordeRegistro(x);
+        }else {
+            System.err.println("Error 001: El registro solicitado [" + x + "] no está definido, por favor revise los registros disponibles.");
+            System.exit(-1);
+        }
 
+        //opera x - a;
+        int result = temp1 + a;
 
+        //procesa las banderas
+        switch (MemoryRed.aluSelectedCom) {
+            case 1:
+                AluCom_1.flagsProcessor(result);
+                break;
+            case 2:
+                AluCom_2.flagsProcessor(result);
+                break;
+            case 3:
+                AluCom_3.flagsProcessor(result);
+                break;
+            case 4:
+                AluCom_4.flagsProcessor(result);
+                break;
+            case 5:
+                AluCom_5.flagsProcessor(result);
+                break;
+            default:
+                System.err.println("Error en la selección del Computador");
+                System.exit(-1);
+                break;
 
+        }
 
+        //ingresa el resultado en memoria y luego sobrescribe en el registro x
+        int dataArrayIndex = MemoryRed.ingresar(result);
+        MemoryRed.cargar(x,dataArrayIndex);
 
+    }
 
-    //....code here
+    public static void modulo(Stringg x,String y) {
 
-
-
+        //IMPORTANTE: favor completar siguiendo la misma logica de la funcion suma
+    }
 
 
 

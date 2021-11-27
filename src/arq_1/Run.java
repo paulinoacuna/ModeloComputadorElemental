@@ -6,7 +6,7 @@ import arq_2.Memory2;
 import java.util.Scanner;
 
 public class Run {
-    public static void main(String[] args) {
+    public static void subMain(String[] args) {
         Scanner scan = new Scanner(System.in);
         boolean mcd = true;
 
