@@ -21,7 +21,7 @@ public class MemoryCom_4 extends arq_2.Memory2 {
     public static int ingresar(int dataIn){
         com_4_dataArray[top] = dataIn;
         top++;
-        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_1:" + "\u001B[0m" +
+        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_4:" + "\u001B[0m" +
                 " \u001B[36m" + "ingresar()" +  "\u001B[0m " + "\u001B[33m" + "-->" + "\u001B[0m" +
                 " Ingresa el dato " + dataIn + " en la memoria de la máquina.");
         return top - 1;
@@ -54,7 +54,7 @@ public class MemoryCom_4 extends arq_2.Memory2 {
                 break;
         }
 
-        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_1:" + "\u001B[0m" +
+        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_4:" + "\u001B[0m" +
                 " \u001B[36m" + "cargar()" +  "\u001B[0m " + "\u001B[33m" + "-->" + "\u001B[0m" +
                 " Carga un valor de memoria al registro " + x + ".");
     }
@@ -84,7 +84,7 @@ public class MemoryCom_4 extends arq_2.Memory2 {
             System.out.println(com_4_dataArray[dataArrayIndex]);
         }
 
-        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_1:" + "\u001B[0m" +
+        System.out.println("\u001B[33m" + "LOG_JVN_MACHINE_4:" + "\u001B[0m" +
                 " \u001B[36m" + "mostrar()" +  "\u001B[0m " + "\u001B[33m" + "-->" + "\u001B[0m" +
                 " Imprime por pantalla virtual (consola) contenido de una posición de memoria específica.");
     }
