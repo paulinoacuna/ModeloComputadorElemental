@@ -205,6 +205,10 @@ public class AluRed {
                 System.exit(-1);
                 break;
         }
+
+        //ingresa el resultado en memoria y luego sobrescribe en el registro x
+        int dataArrayIndex = MemoryRed.ingresar(result);
+        MemoryRed.cargar(x, dataArrayIndex);
     }
 
 
