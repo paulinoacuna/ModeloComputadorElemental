@@ -12,11 +12,11 @@ public class Alu2 {
         flagsArray[3] = 0;
         System.out.println("test result" + result);
 
-        if(result == 0){
+        if(result == 0) {
             flagsArray[0] = 1;
-        }else if(result > 0){
+        } else if(result > 0) {
             flagsArray[1] = 1;
-        }else if(result < 0){
+        } else {
             flagsArray[2] = 1;
         }
         if(result > 65535) {
@@ -175,31 +175,19 @@ public class Alu2 {
     //saltos
 
     public static boolean saltarSiCero(){
-        if (flagsArray[0] == 1) {
-            return true;
-        }
-        return false;
+        return flagsArray[0] == 1;
     }
 
     public static boolean saltarSiPos(){
-        if (flagsArray[1] == 1) {
-            return true;
-        }
-        return false;
+        return flagsArray[1] == 1;
     }
 
     public static boolean saltarSiNeg(){
-        if (flagsArray[2] == 1) {
-            return true;
-        }
-        return false;
+        return flagsArray[2] == 1;
     }
 
     public static boolean saltarSiDes(){
-        if (flagsArray[3] == 1) {
-            return true;
-        }
-        return false;
+        return flagsArray[3] == 1;
     }
 
 }
